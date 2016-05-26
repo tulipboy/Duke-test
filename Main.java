@@ -8,7 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
         ImportFile file = new ImportFile();
-        file.importFile(file.path +  "mysteryTwoKeysPractice.txt");
+        file.importFile(file.path +  "smallHamlet.txt");
+        file.convertFile();
+        file.wordLength();
 
     }
 

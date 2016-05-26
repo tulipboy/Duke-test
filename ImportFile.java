@@ -16,9 +16,9 @@ public class ImportFile {
         return path + lokatie;
     }
 
-    public String tijdelijk;
     public static Scanner reader;
-    ArrayList<String> lines = new ArrayList<String>();
+    ArrayList<String> lines = new ArrayList();
+    int[] sizeWords = new int[21];
 
 
     public void importFile(String fileLokatie){
@@ -30,14 +30,35 @@ public class ImportFile {
         }
      }
 
-        // converting the document to strings to make it more clear to use some methods on them
+        // converting the document to an arraylist of strings to make it more clear to use some methods on them
     public void convertFile(){
         while(reader.hasNextLine()){
             lines.add(reader.nextLine());
         }
-        for (int i = 0; i < lines.size(); i++){
-            System.out.println(lines.get(i));
+    }
+                /*
+                 just put wordLength here temp. as I had some errors.
+                 now I know the error: I should use a alphabet instead of " "
+                 but what alphabet to use and which reading signs to put into it
+                 thoughts for tomorrow...
+                */
+
+    public void wordLength(){
+
+        for (int i = 0; i < lines.size() ; i++){
+            String regel = lines.get(i);
+            int aantal = 0;
+            for (int j = 0; j < regel.length(); j++){
+                if (regel.charAt(j) != ' ') {
+                    aantal++;
+                } else if (regel.charAt(j) == ' ') {
+                    sizeWords[aantal] = sizeWords[aantal]+1;
+                    aantal = 0;
+                }
+            }
+
         }
+        System.out.println(Arrays.toString(sizeWords));
     }
     }
 
